@@ -1,1 +1,1 @@
-"# umc-9th-web-seuldo" 
+# umc-9th-web-seuldo
