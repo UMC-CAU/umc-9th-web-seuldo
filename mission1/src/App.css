@@ -95,7 +95,7 @@ body{
   display: flex;
 }
 
-.todo-container__todo-list-element-text{
+.todo-container__list-element-text{
   flex:1;
   padding: 8px;
   border: 1px solid #ddd;
@@ -103,6 +103,9 @@ body{
   margin-bottom: 6px;
   width: 100%;
 }
+
+/*
+list-element-text로 통합
 
 .todo-container__done-list-element-text{
   flex:1;
@@ -112,6 +115,7 @@ body{
   margin-bottom: 6px;
   width: 100%;
 }
+*/
 
 .todo-container__todo-list-element-button{
   background-color: rgb(124, 224, 88);
