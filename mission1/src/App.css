@@ -1,0 +1,150 @@
+*{
+  margin: 0; /*바깥 여백 제거*/
+  padding: 0; /*안쪽 여백 제거*/
+  box-sizing: border-box; /*width×height 크기 보장*/
+}
+
+body{
+    font-family: 'Roboto', sans-serif; /*폰트 설정*/
+    display: flex; /*자식 요소들을 row 방향 정렬 <<있어야 하나??*/
+    justify-content: center; /*가로 축 정렬*/
+    align-items: center; /*세로 축 정렬*/
+    height: 100vh; /*높이가 전체를 차지 못했기 때문에 정렬을 위해 높이 늘리기*/
+    background-color: rgb(232, 231, 231);
+}
+
+.todo-container{
+    background: white;
+    padding: 20px;
+    border-radius: 12px; /*모서리 둥글게*/
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /*그림자 효과*/
+    width: 350;
+    text-align: center; /*텍스트 가운데 정렬*/
+}
+
+.todo-container__header{
+  font-size: 24px;
+  margin-bottom: 16px; /*아래쪽 바깥 여백 늘리기*/
+}
+
+.todo-container__form{
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-container__text-field{
+  flex:1; /*해당 자식 요소가 버튼 크기 제외 남는 공간을 전부 차지하도록*/
+  padding: 8px;
+  border: 1px solid #ccc; /*요소 테두리를 설정*/
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.todo-container__add-button{
+  background-color: rgb(124, 224, 88);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer; /*커서를 대면 눌릴 수 있도록*/
+  border-radius: 6px;
+  transition: background-color 0.3s ease; /*배경색이 바뀌면 부드럽게 전환*/
+}
+
+/*hover : 마우스가 감지되면 다른 스타일 적용*/
+.todo-container__add-button:hover{
+  background-color: green;
+}
+
+
+.todo-container__list{
+  display: flex;
+  justify-content: space-between; /*flex_item을 양끝에*/
+  gap: 15px; /*flex_item의 간격*/
+}
+
+.todo-container__todo-list{
+  width: 100%;
+  text-align: left;
+}
+
+.todo-container__done-list{
+  width: 100%;
+  text-align: left;
+}
+
+.todo-container__todo-list-title{
+  font-size: 18px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.todo-container__done-list-title{
+  font-size: 18px;
+  margin-bottom: 10px;
+  justify-content: center;
+}
+
+.todo-container__todo-list-element{
+  list-style: none; /*unordered list라 나오는 점을 지울 수 있음*/
+  display: flex;
+}
+
+.todo-container__done-list-element{
+  list-style: none; /*unordered list라 나오는 점을 지울 수 있음*/
+  display: flex;
+}
+
+.todo-container__list-element-text{
+  flex:1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  width: 100%;
+}
+
+/*
+list-element-text로 통합
+
+.todo-container__done-list-element-text{
+  flex:1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  margin-bottom: 6px;
+  width: 100%;
+}
+*/
+
+.todo-container__todo-list-element-button{
+  background-color: rgb(124, 224, 88);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 6px;
+}
+
+.todo-container__todo-list-element-button:hover{
+  background-color: green;
+}
+
+.todo-container__done-list-element-button{
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-size: 12px;
+  transition: background-color 0.3s ease;
+  margin-bottom: 6px;
+}
+
+.todo-container__done-list-element-button:hover{
+  background-color: rgb(183, 0, 0);
+}
