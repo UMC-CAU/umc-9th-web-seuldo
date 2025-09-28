@@ -1,7 +1,9 @@
 import { useRef } from 'react'
+import { useTodo } from '../context/TodoProvider';
 
-function TodoInput({addTodo}:{addTodo:(t:string)=>void}){
+function TodoInput(){
 
+  const { addTodo } = useTodo();
   
   const ref = useRef<HTMLInputElement>(null);
 

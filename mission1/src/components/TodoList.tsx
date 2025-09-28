@@ -1,7 +1,8 @@
 import ListItem from './ListItem';
+import { useTodo } from '../context/TodoProvider';
 
-//completeTodo는 전달용으로만 사용
-function TodoList({todos, completeTodo}:{todos:string[], completeTodo:(t: string) => void}){
+function TodoList(){
+  const { todos, completeTodo} = useTodo();
 
   return(
     <>

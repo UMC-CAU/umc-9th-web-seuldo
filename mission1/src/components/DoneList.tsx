@@ -1,8 +1,9 @@
 import ListItem from './ListItem';
+import { useTodo } from '../context/TodoProvider';
 
-//deleteTodo 전달용으로만 사용
-function DoneList({dones, deleteTodo}:{dones:string[], deleteTodo:(t: string) => void}){
-
+function DoneList(){
+  const { dones, deleteTodo } = useTodo();
+  
   return(
     <>
       <div className="todo-container__done-list">
