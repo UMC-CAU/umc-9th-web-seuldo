@@ -37,7 +37,7 @@ export default function MoviesPage(){
           <div className='absolute inset-0 flex flex-col justify-center items-center backdrop-blur-md text-white
                         opacity-0 group-hover:opacity-100 duration-300 rounded'>
             <h2 className="font-bold text-lg leading-snug">{movie.title}</h2>
-            <p className='text-smline-clamp-5'>{movie.overview}</p>
+            <p className='text-sm line-clamp-5'>{movie.overview}</p>
           </div>
         </div>
         )}
