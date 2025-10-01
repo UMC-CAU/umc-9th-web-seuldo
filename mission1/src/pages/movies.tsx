@@ -26,13 +26,22 @@ export default function MoviesPage(){
   console.log(movies[0])
 
   return (
-    <ul>
-      {movies.map((movie) => (
-        <li key={movie.id}>
-          <h2>{movie.title}</h2>
-          <p>{movie.release_date}</p>
-        </li>
-      ))}
-    </ul>
+    <div className="flex justify-center">
+      <div className="grid grid-cols-6 gap-2">
+        {movies.map((movie) => 
+        <div className='relative group overflow-hidden'>
+          <img key={movie.id}
+            src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+            className="rounded"
+          />
+          <div className='absolute inset-0 flex flex-col justify-center items-center backdrop-blur-md text-white
+                        opacity-0 group-hover:opacity-100 duration-300 rounded'>
+            <h2 className="font-bold text-lg leading-snug">{movie.title}</h2>
+            <p className='text-smline-clamp-5'>{movie.overview}</p>
+          </div>
+        </div>
+        )}
+      </div>
+    </div>
   );
-};
+}
