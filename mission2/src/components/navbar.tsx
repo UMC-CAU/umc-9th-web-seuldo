@@ -8,22 +8,22 @@ const Navbar = () => {
         }>
         홈
       </NavLink>
-            <NavLink to="/movies" style={({ isActive }) =>
+            <NavLink to="/movies/popular" style={({ isActive }) =>
           isActive ? { fontWeight: 'bold', color: 'green' } : {color: 'gray'}
         }>
         인기 영화
       </NavLink>
-            <NavLink to="/upcoming" style={({ isActive }) =>
+            <NavLink to="/movies/now_playing" style={({ isActive }) =>
           isActive ? { fontWeight: 'bold', color: 'green' } : {color: 'gray'}
         }>
         상영 중
       </NavLink>
-            <NavLink to="/high-rated" style={({ isActive }) =>
+            <NavLink to="/movies/top_rated" style={({ isActive }) =>
           isActive ? { fontWeight: 'bold', color: 'green' } : {color: 'gray'}
         }>
         평점 높은
       </NavLink>
-            <NavLink to="/now-playing" style={({ isActive }) =>
+            <NavLink to="/movies/upcoming" style={({ isActive }) =>
           isActive ? { fontWeight: 'bold', color: 'green' } : {color: 'gray'}
         }>
         개봉 예정

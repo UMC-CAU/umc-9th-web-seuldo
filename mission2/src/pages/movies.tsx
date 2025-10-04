@@ -4,12 +4,16 @@ import { LoadingIcon } from "../components/loading-icon";
 import axios from 'axios';
 import { ErrorText } from '../components/error';
 import { PageNavigator } from '../components/pagination';
+import { useParams } from 'react-router-dom';
 
 export default function MoviesPage(){
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [page, setPage] = useState(1);
+  const { category } = useParams<{
+    category : string
+  }>()
 
   console.log(import.meta.env.VITE_TMDB_KEY);
 
@@ -18,7 +22,7 @@ export default function MoviesPage(){
         try{
         setIsLoading(true)
         const { data } = await axios.get<MovieResponse>(
-          `https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}`,
+          `https://api.themoviedb.org/3/movie/${category}?language=en-US&page=${page}`,
           {
             headers: {
               Authorization: `Bearer ${import.meta.env.VITE_TMDB_KEY}`,
@@ -26,14 +30,15 @@ export default function MoviesPage(){
           }
         );
         setMovies(data.results);
-        }catch{
+        }catch(e){
+          console.log(e)
           setIsError(true)
         }finally{
           setIsLoading(false)
         }
       }
       fetchMovies()
-  }, [page]);
+  }, [page, category]);
 
   if (isLoading){
     return <LoadingIcon />;
