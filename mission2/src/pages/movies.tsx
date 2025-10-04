@@ -1,29 +1,44 @@
 import { useEffect, useState } from 'react';
 import type { Movie, MovieResponse } from '../types/movie';
+import { LoadingIcon } from "../components/loading-icon";
 import axios from 'axios';
+import { ErrorText } from '../components/error';
 
 export default function MoviesPage(){
   const [movies, setMovies] = useState<Movie[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isError, setIsError] = useState(false);
 
   console.log(import.meta.env.VITE_TMDB_KEY);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      const { data } = await axios.get<MovieResponse>(
-        'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
-        {
-          headers: {
-            Authorization: `Bearer ${import.meta.env.VITE_TMDB_KEY}`,
-          },
+      const fetchMovies = async () => {
+        try{
+        setIsLoading(true)
+        const { data } = await axios.get<MovieResponse>(
+          'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1',
+          {
+            headers: {
+              Authorization: `Bearer ${import.meta.env.VITE_TMDB_KEY}`,
+            },
+          }
+        );
+        setMovies(data.results);
+        }catch{
+          setIsError(true)
+        }finally{
+          setIsLoading(false)
         }
-      );
-      setMovies(data.results);
-    };
-
-    fetchMovies();
+      }
+      fetchMovies()
   }, []);
 
-  console.log(movies[0])
+  if (isLoading){
+    return <LoadingIcon />;
+  }
+  if (isError){
+    return <ErrorText/>
+  }
 
   return (
     <div className="flex justify-center">
