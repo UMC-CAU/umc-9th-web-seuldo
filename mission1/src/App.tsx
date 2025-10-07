@@ -30,7 +30,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  console.log(import.meta.env.VITE_TMDB_KEY);
   return <RouterProvider router={router} />;
 }
 
