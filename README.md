@@ -3,6 +3,7 @@
 cd mission2
 
 pnpm install
+
 pnpm run dev
 
 cd ..
@@ -10,4 +11,5 @@ cd ..
 cd mission3
 
 pnpm install
+
 pnpm run dev
