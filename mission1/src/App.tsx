@@ -16,6 +16,7 @@ import GoogleLoginRedirectPage from "./pages/google-redirect";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import LpDetailPage from "./pages/LpDetailPage";
+import Search from "./pages/search";
 
 const publicRoutes: RouteObject[] = [
   {
@@ -38,6 +39,10 @@ const publicRoutes: RouteObject[] = [
       {
         path: "/v1/auth/google/callback",
         element: <GoogleLoginRedirectPage />,
+      },
+            {
+        path: "/search",
+        element: <Search />,
       },
     ],
   },

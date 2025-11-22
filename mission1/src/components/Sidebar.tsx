@@ -1,5 +1,6 @@
 import { useHamburger } from "../context/HamburgerContext";
 import hamburgerIcon from "../assets/hamburger-button.svg"
+import { Link } from "react-router-dom";
 
 
 const Sidebar = () => {
@@ -24,12 +25,12 @@ const Sidebar = () => {
         </div>
 
         <nav className="flex flex-col gap-5 text-gray-300">
-          <span className="hover:text-white hover:font-bold transition-colors cursor-pointer">
+          <Link to="/search" className="hover:text-white hover:font-bold transition-colors cursor-pointer">
             찾기
-          </span>
-          <span className="hover:text-white hover:font-bold transition-colors cursor-pointer">
+          </Link>
+          <Link to="/my" className="hover:text-white hover:font-bold transition-colors cursor-pointer">
             마이페이지
-          </span>
+          </Link>
         </nav>
       </div>
 
