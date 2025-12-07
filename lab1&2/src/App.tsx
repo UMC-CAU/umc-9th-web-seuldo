@@ -1,8 +1,7 @@
-import { useCallback, useState } from "react";
-import "./App.css";
-import Face from "./components/face";
+import { useState, useCallback, useMemo } from "react";
 import ProductItem from "./components/ProductItem";
 import { products } from "./data/products";
+import Face from "./components/face";
 
 function App() {
   const [query, setQuery] = useState("");
@@ -16,11 +15,18 @@ function App() {
     setSortType(type);
   }, []);
 
-  const filtered = products
-    .filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
-    .sort((a, b) =>
-      sortType === "asc" ? a.price - b.price : b.price - a.price
-    );
+  const filtered = useMemo(() => {
+    console.log("filtered 리스트 재계산됨");
+
+    const result = products
+      .filter((p) => p.name.toLowerCase().includes(query.toLowerCase()))
+      .sort((a, b) =>
+        sortType === "asc" ? a.price - b.price : b.price - a.price
+      );
+
+    return result;
+  }, [query, sortType]); 
+  // query 또는 sortType이 바뀔 때만 재연산
 
   return (
     <>
@@ -52,7 +58,9 @@ function App() {
           가격 down
         </button>
       </div>
+      
 
+      {/* 리스트 */}
       <div className="border">
         {filtered.map((p) => (
           <ProductItem key={p.id} name={p.name} price={p.price} />
